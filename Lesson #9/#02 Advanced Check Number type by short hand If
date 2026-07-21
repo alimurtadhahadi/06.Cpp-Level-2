@@ -1,0 +1,11 @@
+#include <iostream>
+using namespace std;
+int main()
+{
+	string Result;
+	int Number;
+	cout << "Please enter any number to check it type : ";
+	cin >> Number;
+	Result = (Number < 0) ? "nagative" : (Number == 0) ? "0" : "Positive";
+	cout << "Number is " << Result << endl;
+}
