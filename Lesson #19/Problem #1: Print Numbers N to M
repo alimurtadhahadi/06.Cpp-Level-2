@@ -1,0 +1,29 @@
+/*
+=================================== ⚙️ ﷽ ===================================
+  [COURSE #6]│ Lesson #19 - Recursion (Problem #1: Print Numbers M to N)
+  -----------|---------------------------------------------------------------
+  [CONTEXT]  │ Course: ProgrammingAdvices (C++ Level 2 - Advanced Concepts)
+  -----------|---------------------------------------------------------------
+  [AUTHOR]   │ Ali_Dev (@Ali_DevCode_Lab)
+  -----------|---------------------------------------------------------------
+  [DATE]     │ July 26, 2026 (Sunday)
+  -----------|---------------------------------------------------------------
+  [DESC]     │ Recursive functional pipeline printing descending range [M..N].
+  -----------│ Demonstrates base-case evaluation and unwinding call frames.
+===========================================================================
+*/
+
+#include <iostream>
+using namespace std;
+void PrintNumbersFromMtoN(int M, int N)
+{
+	if (M >= N)
+	{
+		cout << M << endl;
+		PrintNumbersFromMtoN(M - 1, N);
+	}
+}
+int main() {
+	PrintNumbersFromMtoN(10, 1);
+	return 0;
+}
