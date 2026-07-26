@@ -1,0 +1,35 @@
+/*
+=================================== ⚙️ ﷽ ===================================
+  [COURSE #6] │ Lesson #19 - Recursion (Problem #2: Calculate Power N^M)
+  -----------|---------------------------------------------------------------
+  [CONTEXT]  │ Course: ProgrammingAdvices (C++ Level 2 - Advanced Concepts)
+  -----------|---------------------------------------------------------------
+  [AUTHOR]   │ Ali_Dev (@Ali_DevCode_Lab)
+  -----------|---------------------------------------------------------------
+  [DATE]     │ July 26, 2026 (Sunday)
+  -----------|---------------------------------------------------------------
+  [DESC]     │ Recursive functional pipeline calculating exponents (Base^Power).
+===========================================================================
+*/
+
+#include <iostream>
+using namespace std;
+
+int MyPower(int Base, int Power)
+{
+    if (Power == 0)
+    {
+        return 1;
+    }
+    else
+    {
+        return (Base * MyPower(Base, Power - 1));
+    }
+}
+
+int main()
+{
+    cout << "Result of 2^4 = " << MyPower(2, 4) << endl;
+
+    return 0;
+}
