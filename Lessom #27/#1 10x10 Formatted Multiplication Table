@@ -1,0 +1,42 @@
+/*
+=================================== ⚙️ ﷽ ===================================
+  [TOPIC]       │ Homework #27 - 10x10 Formatted Multiplication Table
+  --------------|---------------------------------------------------------------
+  [CONTEXT]     │ 2D Arrays & Advanced Console String Padding
+  --------------|---------------------------------------------------------------
+  [DESCRIPTION] │ Creates a 10x10 multiplication grid using nested loops,
+                │ formatted with leading zeros and clean ASCII borders.
+  --------------|---------------------------------------------------------------
+  [DATE]        │ 2026-07-29
+  --------------|---------------------------------------------------------------
+  [AUTHOR]      │ Ali_Dev (@Ali_DevCode_Lab)
+===========================================================================
+*/
+#include <iostream>
+#include <cstdio>
+#include <string>
+using namespace std;
+
+int main()
+{
+    int x[10][10];
+    for (int i = 0; i < 10; i++)
+    {
+        for (int j = 0; j < 10; j++)
+        {
+            x[i][j] = (j + 1) * (i + 1);
+        }
+    }
+    cout << "+" << string(41, '=') << "+" << endl;
+    for (int i = 0; i < 10; i++)
+    {
+        cout << "| ";
+        for (int j = 0; j < 10; j++)
+        {
+            printf("%0*d ", 3, x[i][j]); 
+        }
+        cout << "|" << endl;
+    }
+    cout << "+" << string(41, '=') << "+" << endl;
+    return 0;
+}
