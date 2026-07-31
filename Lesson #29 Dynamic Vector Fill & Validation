@@ -1,0 +1,85 @@
+/*
+=================================== ⚙️ ﷽ ===================================
+  [ASSIGNMENT]  │ Homework Lecture #29 - Dynamic Vector Fill & Validation
+  --------------|---------------------------------------------------------------
+  [TOPIC]       │ C++ std::vector - Read & Print Dynamic Numbers System
+  --------------|---------------------------------------------------------------
+  [CONTEXT]     │ Pass-by-Reference (&), Input Stream Protection & Case Normalization
+  --------------|---------------------------------------------------------------
+  [DESCRIPTION] │ Official solution for Lecture 29 Homework: Continuously reads user
+                │ integers into std::vector<int> using cin failure handling and
+                │ flexible multi-synonym approval check.
+  --------------|---------------------------------------------------------------
+  [DATE]        │ 2026-08-01
+  --------------|---------------------------------------------------------------
+  [AUTHOR]      │ Ali_Dev (@Ali_DevCode_Lab)
+===========================================================================
+*/
+#include <iostream>
+#include <vector>
+#include <string>
+#include <limits>  
+#include <cctype> 
+using namespace std;
+
+string ToLower(string str)
+{
+    for (char& c : str)
+    {
+        c = static_cast<char>(tolower(static_cast<unsigned char>(c)));
+    }
+    return str;
+}
+bool IsUserAgree(string Answer)
+{
+    string cleanAns = ToLower(Answer);
+    return (cleanAns == "yes" || cleanAns == "yeah" || cleanAns == "yep" ||
+        cleanAns == "yup" || cleanAns == "ok" || cleanAns == "sure" || cleanAns == "y");
+}
+void ReadNumbers(vector<int>& vNumbers)
+{
+    string ReadMore = "yes";
+    int Number;
+
+    while (IsUserAgree(ReadMore)) {
+
+        cout << "Please enter Number : ";
+        cin >> Number;
+
+        while (cin.fail())
+        {
+            cin.clear(); 
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            cout << "Invalid Number, Enter a valid one : ";
+            cin >> Number;
+        }
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+
+        vNumbers.push_back(Number);
+
+        cout << "Do you want to enter another Number? : ";
+        cin >> ReadMore;
+    }
+}
+void PrintVectorNumbers(const vector<int>& vNumbers)
+{
+    cout << "\n===============================================================================\n";
+    cout << "   [ NUMBERS VECTOR DISPLAY - LECTURE 29 HOMEWORK ]                           \n";
+    cout << "===============================================================================\n\n";
+
+    for (int Number : vNumbers)
+    {
+        cout << "  > " << Number << endl;
+    }
+
+    cout << "\n===============================================================================\n";
+}
+
+int main()
+{
+    vector<int> vNumbers;
+    ReadNumbers(vNumbers);
+    PrintVectorNumbers(vNumbers);
+
+    return 0;
+}
